@@ -1,0 +1,15 @@
+openai
+pymongo
+supabase
+phonenumbers
+requests
+tenacity
+fastapi
+uvicorn[standard]
+apscheduler
+
+# Tests
+pytest
+pytest-mock
+mongomock
+python-dotenv

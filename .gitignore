@@ -1,0 +1,6 @@
+.env
+*docker*
+deploy/
+sql/
+__pycache__/
+AWS*
