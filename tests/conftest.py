@@ -28,6 +28,9 @@ def _minimal_service_env(request: pytest.FixtureRequest, monkeypatch: pytest.Mon
     # Integration tests hit real Mongo + Supabase — keep .env values (pytest_configure loads dotenv).
     if request.node.get_closest_marker("integration"):
         return
+    # Live VAPI outbound call test — must use real VAPI_API_KEY from .env (not test-vapi).
+    if request.node.get_closest_marker("vapi_live"):
+        return
 
     monkeypatch.setenv("SUPABASE_URL", "https://test.supabase.co")
     monkeypatch.setenv("SUPABASE_SERVICE_ROLE_KEY", "test-service-role")

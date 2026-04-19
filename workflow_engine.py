@@ -221,6 +221,8 @@ class SharedServiceConfig:
         self.openai_model = os.environ.get("OPENAI_MODEL", "gpt-4.1-mini")
         self.vapi_api_key = os.environ["VAPI_API_KEY"]
         self.vapi_base_url = os.environ.get("VAPI_BASE_URL", "https://api.vapi.ai")
+        _phone_id = os.environ.get("VAPI_PHONE_NUMBER_ID", "").strip()
+        self.vapi_phone_number_id = _phone_id or None
         self.default_region = os.environ.get("PHONE_DEFAULT_REGION", "US")
         self.audit_table = os.environ.get("ADVISOR_OUTREACH_AUDIT_TABLE", "").strip() or None
         self.vapi_max_concurrent = max(1, int(os.environ.get("VAPI_MAX_CONCURRENT_PER_CONCEPT", "3")))
